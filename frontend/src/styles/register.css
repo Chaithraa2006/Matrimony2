@@ -1,0 +1,100 @@
+/* Apply styles only inside .register-page */
+.register-page {
+    max-width: 400px;
+    margin: 50px auto;
+    text-align: center;
+  }
+/* Register Container */
+.register-page .form-container {
+    width: 400px;
+    padding: 25px;
+    background: white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    text-align: center;
+}
+
+/* Heading */
+.register-page h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Input Fields */
+.register-page input {
+    width: 90%;
+    padding: 12px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+/* Input Focus Effect */
+.register-page input:focus {
+    border-color: #28a745;
+    outline: none;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.6);
+}
+
+/* File Input */
+.register-page input[type="file"] {
+    border: none;
+    padding: 5px;
+}
+
+/* Button */
+.register-page button {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Button Hover */
+.register-page button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .success-message {
+    color: green;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+
+  input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+  }
+
+
+  input[type="file"] {
+    margin: 10px 0;
+    padding: 8px;
+    background: #f1f1f1;
+    border-radius: 5px;
+  }
+  
