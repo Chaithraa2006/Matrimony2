@@ -10,7 +10,6 @@ function Register() {
     phone: "",
   });
   const navigate = useNavigate();
-  const [message, setMessage] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -18,7 +17,6 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const response = await fetch("http://localhost:5000/api/auth/register", {
         method: "POST",
@@ -27,28 +25,55 @@ function Register() {
       });
 
       const data = await response.json();
+
       if (response.ok) {
-        setMessage("OTP sent to your email. Please verify!");
-        setTimeout(() => navigate("/verify-otp"), 1500); // Redirect to OTP page
+        alert("Registration successful! OTP sent to email.");
+        navigate("/verify-otp", { state: { email: formData.email } }); // ✅ Pass email to VerifyOTP
       } else {
-        setMessage(data.message);
+        alert(data.message);
       }
     } catch (error) {
-      setMessage("Error registering user!");
+      console.error("Error:", error);
+      alert("Something went wrong!");
     }
   };
 
   return (
     <div className="register-page">
-      <h2>Register</h2>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="name" placeholder="Name" onChange={handleChange} required />
-        <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
-        <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
-        <input type="text" name="phone" placeholder="Phone" onChange={handleChange} required />
-        <button type="submit">Register</button>
-      </form>
-      <p>{message}</p>
+      <div className="form-container">
+        <h2>Register</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="name"
+            placeholder="Name"
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="text"
+            name="phone"
+            placeholder="Phone"
+            onChange={handleChange}
+            required
+          />
+          <button type="submit">Register</button>
+        </form>
+      </div>
     </div>
   );
 }

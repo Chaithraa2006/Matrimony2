@@ -1,47 +1,41 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/profile.css";
+import "../styles/profile.css"; // ✅ Import CSS for Profile Page
 
-function Profile() {
+const Profile = () => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
+  // ✅ Check if user is logged in
   useEffect(() => {
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-    if (!storedUser) {
-      navigate("/login"); // Redirect to login if not logged in
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
     } else {
-      setUser(storedUser);
+      navigate("/login"); // 🔥 Redirect to login if not authenticated
     }
   }, [navigate]);
 
-  if (!user) return <p>Loading...</p>;
+  // ✅ Handle Logout
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    navigate("/login"); // 🔥 Redirect to login after logout
+  };
+
+  if (!user) {
+    return <div>Loading...</div>;
+  }
 
   return (
-    <div className="profile-container">
-      <h2>Profile Page</h2>
-
-      {/* Profile Image on Top */}
-      {user.image && (
-        <div className="profile-image">
-          <img src={`http://localhost:5000${user.image}`} alt="Profile" width="150" />
-        </div>
-      )}
-
-      {/* User Details Below Image */}
-      <div className="profile-details">
-        <p><strong>Name:</strong> {user.name}</p>
-        <p><strong>Email:</strong> {user.email}</p>
-        <p><strong>Phone:</strong> {user.phone}</p>
-        <p><strong>Password:</strong> {user.password}</p>
+    <div className="profile-page">
+      <div className="profile-container">
+        <h2>Welcome, {user.name}!</h2>
+        <p>Email: {user.email}</p>
+        <p>Phone: {user.phone}</p>
+        <button onClick={handleLogout}>Logout</button> {/* ✅ Logout Button */}
       </div>
-
-      {/* Logout Button */}
-      <button onClick={() => { localStorage.removeItem("user"); navigate("/login"); }}>
-        Logout
-      </button>
     </div>
   );
-}
+};
 
 export default Profile;

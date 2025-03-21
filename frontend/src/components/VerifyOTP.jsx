@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "../styles/verifyotp.css";
 
@@ -6,7 +6,14 @@ function VerifyOTP() {
   const [otp, setOtp] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
-  const email = location.state?.email;
+  const email = location.state?.email; // ✅ Get email from state
+
+  useEffect(() => {
+    if (!email) {
+      alert("Email not found! Redirecting to register.");
+      navigate("/register"); // Redirect if email is not passed
+    }
+  }, [email, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,13 +28,13 @@ function VerifyOTP() {
       const data = await response.json();
 
       if (response.ok) {
-        alert("OTP verified successfully! Please login.");
-        navigate("/login"); // Redirect to login page
+        alert("✅ OTP verified successfully! Please login.");
+        navigate("/login"); // Redirect to login page after success
       } else {
         alert(data.message);
       }
     } catch (error) {
-      alert("Something went wrong!");
+      alert("❌ Something went wrong. Try again!");
     }
   };
 
