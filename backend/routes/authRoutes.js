@@ -6,6 +6,7 @@
 // // ✅ Register Route
 // router.post("/register", registerUser);
 
+
 // // ✅ Verify OTP Route
 // router.post("/verify-otp", verifyOTP);
 
@@ -13,7 +14,7 @@
 
 
 import express from "express";
-import { loginUser, registerUser, verifyOTP } from "../controllers/authController.js";
+import { registerUser, loginUser, verifyOTP } from "../controllers/authController.js";
 
 const router = express.Router();
 
@@ -21,7 +22,7 @@ const router = express.Router();
 router.post("/register", registerUser);
 
 // ✅ Login Route
-router.post("/login", loginUser);
+router.post("/login", loginUser); // ✅ Ensure this line exists!
 
 // ✅ Verify OTP Route
 router.post("/verify-otp", verifyOTP);
