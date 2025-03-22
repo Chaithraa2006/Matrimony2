@@ -1,20 +1,41 @@
-/* Apply styles only inside .login-page */
+/* ✅ Apply styles only inside .login-page */
 .login-page {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: #e3f2fd;
+    background: url('../../public/images/image10.avif') no-repeat center center/cover; /* ✅ Updated background image */
 }
 
-/* Login Container */
+/* ✅ Login Container with Background Image and Overlay */
 .login-page .form-container {
-    width: 380px;
+    position: relative;
+    width: 480px;
+    height: 280px;
     padding: 25px;
-    background: white;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    /* ✅ Same image for the form */
     border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     text-align: center;
+    overflow: hidden; /* Ensure overlay stays inside */
+}
+
+/* ✅ Overlay to Apply Color to the Background */
+.login-page .form-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5); /* ✅ Light white overlay for readability */
+    z-index: 1;
+}
+
+/* ✅ Ensuring Content is Above the Overlay */
+.login-page .form-container > * {
+    position: relative;
+    z-index: 2;
 }
 
 /* Heading */
@@ -47,7 +68,7 @@
     width: 100%;
     padding: 12px;
     font-size: 18px;
-    background-color: #007bff;
+    background-color: #f50057;
     color: white;
     border: none;
     border-radius: 6px;
@@ -61,16 +82,16 @@
     transform: scale(1.05);
 }
 
-
+/* Error Message */
 .error-message {
     color: red;
     font-size: 14px;
     margin-bottom: 10px;
-  }
-  
-  .success-message {
+}
+
+/* Success Message */
+.success-message {
     color: green;
     font-size: 14px;
     margin-bottom: 10px;
-  }
-  
+}

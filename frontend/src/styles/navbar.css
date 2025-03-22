@@ -1,37 +1,47 @@
 /* Navbar Styles */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #ff4081;
-    padding: 10px 20px;
-  }
-  
-  .logo a {
-    text-decoration: none;
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-  }
-  
-  .nav-links li {
-    display: inline;
-  }
-  
-  .nav-links a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    transition: color 0.3s;
-  }
-  
-  .nav-links a:hover {
-    color: #ffd700;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ff4081;
+  padding: 10px 20px;
+}
+
+/* ✅ Add space for logo on the left */
+.logo {
+  margin-right: auto; /* Pushes links to the right */
+}
+
+/* ✅ Style for logo link */
+.logo a {
+  text-decoration: none;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* ✅ Style for nav-links (Aligned to the right) */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin-left: auto; /* Pushes nav-links to the right */
+}
+
+/* ✅ Style for individual list items */
+.nav-links li {
+  display: inline;
+}
+
+/* ✅ Style for nav-links anchor tags */
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+/* ✅ Change color on hover */
+.nav-links a:hover {
+  color: #ffd700;
+}

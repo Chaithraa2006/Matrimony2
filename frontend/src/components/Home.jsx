@@ -23,7 +23,7 @@ function Home() {
       <div className="slider">
         <img src={images[currentIndex]} alt="Matrimony Slide" />
         <div className="text-overlay">
-          <h1>Welcome to Atozas</h1>
+          <h1>Welcome to Atozas Matrimony</h1>
           <p>Find your perfect match with us!</p>
         </div>
       </div>
