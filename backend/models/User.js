@@ -1,7 +1,5 @@
-// ✅ Import Required Modules
 import mongoose from "mongoose";
 
-// ✅ Define User Schema
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -20,19 +18,52 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  image: {
-    type: String, // ✅ Store image path in DB
-    default: null,
+  profileFor: {
+    type: String,
+    required: true,
+  },
+  gender: {
+    type: String,
+    required: true,
+  },
+  dob: {
+    type: String,
+    required: true,
+  },
+  country: {
+    type: String,
+    required: true,
+  },
+  religion: {
+    type: String,
+    required: true,
+  },
+  motherTongue: {
+    type: String,
+    required: true,
+  },
+  alerts: {
+    type: Boolean,
+    default: false,
   },
   otp: {
     type: String,
+    default: "",
   },
   verified: {
     type: Boolean,
     default: false,
   },
+  image: {
+    type: String,
+    default: null,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
-// ✅ Create and Export User Model
 const User = mongoose.model("User", userSchema);
+
 export default User;

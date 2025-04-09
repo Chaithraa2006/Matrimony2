@@ -1,0 +1,184 @@
+/* ✅ General Styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+}
+
+/* ✅ Container Styles */
+div {
+  box-sizing: border-box;
+}
+
+/* ✅ Offer Banner */
+.offer-banner {
+  background-color: #ff4081;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* ✅ FAQ Header Section */
+.faq-header {
+  background-color: #e1f5fe;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.faq-header h2 {
+  margin: 0;
+  font-size: 26px;
+  color: #0077cc;
+}
+
+/* ✅ FAQ Contact Section */
+.faq-contact-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 30px 20px;
+  flex-wrap: wrap;
+}
+
+.faq-card {
+  width: 250px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.faq-card:hover {
+  transform: translateY(-5px);
+}
+
+.faq-card img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+}
+
+.faq-card p {
+  font-size: 14px;
+  color: #333;
+}
+
+.faq-card a {
+  color: #ff4081;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.faq-card a:hover {
+  text-decoration: underline;
+}
+
+/* ✅ FAQ Main Section */
+.faq-container {
+  background-color: #ffffff;
+  padding: 30px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.faq-container h3 {
+  color: #0077cc;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.faq-container p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #555;
+}
+
+/* ✅ FAQ List */
+.faq-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.faq-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.faq-list li a {
+  color: #ff4081;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.faq-list li a:hover {
+  text-decoration: underline;
+}
+
+/* ✅ Help Notification */
+.help-notification {
+  background-color: #e8f5e9;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.help-notification img {
+  width: 70px;
+  margin-bottom: 10px;
+}
+
+.help-notification p {
+  font-size: 14px;
+  color: #333;
+  margin: 5px 0;
+}
+
+.help-notification a {
+  color: #0077cc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.help-notification a:hover {
+  text-decoration: underline;
+}
+
+.help-timing {
+  font-size: 14px;
+  color: #555;
+}
+
+/* ✅ WhatsApp Button */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-btn img {
+  width: 60px;
+  height: 60px;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.1);
+}
+
+/* ✅ Offline Status */
+.offline-status {
+  color: red;
+  font-weight: bold;
+}

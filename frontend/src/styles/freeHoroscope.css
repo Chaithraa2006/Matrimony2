@@ -1,0 +1,232 @@
+.horoscope-container {
+    min-height: calc(100vh - 80px);
+    padding: 40px 20px;
+    background: #fff;
+    margin-top: 0;
+}
+
+.horoscope-content {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 40px;
+}
+
+h1 {
+    text-align: center;
+    color: #4a0517;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.tagline {
+    text-align: center;
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.features span {
+    background: #4a0517;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.horoscope-form {
+    margin: 0 auto 40px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #4a0517;
+}
+
+.get-horoscope-btn {
+    width: 100%;
+    background: #4a0517;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.get-horoscope-btn:hover {
+    background: #630a20;
+}
+
+.horoscope-image-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    margin-top: 40px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.horoscope-wheel {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.benefits {
+    flex: 1;
+}
+
+.benefits h3 {
+    color: #4a0517;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.benefits ul {
+    list-style: none;
+    padding: 0;
+}
+
+.benefits li {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.app-promo-container {
+    background: linear-gradient(to right, #c95f71, #d17298);
+    width: 100%;
+    padding: 40px 0;
+}
+
+.app-promo-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.app-promo-text {
+    color: white;
+    flex: 1;
+    padding-right: 40px;
+}
+
+.app-promo-text h2 {
+    font-size: 32px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.app-promo-text h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin: 10px 0 20px;
+    line-height: 1.2;
+}
+
+.app-promo-text .stats {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.store-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.store-link img {
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.store-link:hover img {
+    transform: scale(1.05);
+}
+
+.app-promo-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.app-promo-image img {
+    max-height: 500px;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+}
+
+@media (max-width: 768px) {
+    .horoscope-container {
+        padding: 20px 10px;
+    }
+
+    .horoscope-content {
+        padding: 20px;
+    }
+
+    .horoscope-image-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .app-promo-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .app-promo-text {
+        padding-right: 0;
+        margin-bottom: 40px;
+    }
+
+    .app-promo-text h1 {
+        font-size: 36px;
+    }
+
+    .store-buttons {
+        justify-content: center;
+    }
+
+    .app-promo-image img {
+        max-height: 400px;
+    }
+} 

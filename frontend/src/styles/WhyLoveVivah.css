@@ -1,0 +1,70 @@
+/* Why LoveVivah Section */
+.why-lovevivah {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+  }
+  
+  .section-title {
+    font-size: 32px;
+    color: #e83e8c;
+    margin-bottom: 40px;
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .feature-card {
+    background: white;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .feature-icon img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+  }
+  
+  .feature-card h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 20px;
+  }
+  
+  .feature-card p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 14px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1024px) {
+    .features-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .feature-card {
+      max-width: 350px;
+      margin: 0 auto;
+    }
+  }

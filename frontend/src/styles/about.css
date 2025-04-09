@@ -1,0 +1,245 @@
+/* About Section Styles */
+.about-section {
+  padding: 60px 0;
+  background-color: #f1e2e2;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #e4cdcd;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.about-title {
+  font-size: 36px;
+  color: #e83e8c;
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.about-content {
+  background-color: #f9f9f9;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-content h2 {
+  color: #e83e8c;
+  margin: 30px 0 15px;
+  font-size: 24px;
+}
+
+.about-content h3 {
+  color: #333;
+  margin: 25px 0 10px;
+  font-size: 20px;
+}
+
+.about-content p {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.auth-list,
+.benefits-list {
+  margin: 20px 0 20px 30px;
+  padding-left: 20px;
+}
+
+.auth-list li,
+.benefits-list li {
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.company-info {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+  font-size: 15px;
+  text-align: center;
+  color: #666;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 40px 0;
+  }
+  
+  .about-title {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+  
+  .about-content {
+    padding: 25px;
+  }
+  
+  .about-content h2 {
+    font-size: 22px;
+  }
+  
+  .about-content h3 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-content {
+    padding: 20px 15px;
+  }
+  
+  .auth-list,
+  .benefits-list {
+    margin-left: 15px;
+    padding-left: 10px;
+  }
+}
+
+.about-hero {
+    background-image: url('C:\001work\chaithra2025\Matrimony2\frontend\public\images\about.png.png');
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.about-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(155, 145, 145, 0.5);
+}
+
+.about-hero h1 {
+    color: white;
+    font-size: 48px;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.about-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.intro-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #170505;
+    margin-bottom: 30px;
+}
+
+.section {
+    margin-bottom: 40px;
+}
+
+.section-title {
+    color: #1b0505;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.section h3 {
+    color: #77152c;
+    font-size: 20px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.section p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.section ol {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.section ol li {
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+
+.note {
+    font-style: italic;
+    color: #777;
+}
+
+.company-footer {
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.company-logo {
+    width: 100px;
+    height: auto;
+}
+
+.company-details {
+    color: #444;
+}
+
+.company-details strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.company-details p {
+    color: #666;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .about-hero {
+        height: 200px;
+    }
+
+    .about-hero h1 {
+        font-size: 36px;
+    }
+
+    .about-content-wrapper {
+        padding: 20px;
+    }
+
+    .section-title {
+        font-size: 22px;
+    }
+
+    .company-footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .company-logo {
+        margin: 0 auto;
+    }
+}
+
+
+

@@ -1,0 +1,359 @@
+/* Membership Container */
+.membership-container {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #fff;
+    margin-top: 60px;
+    padding: 20px;
+}
+
+/* Membership Header */
+.membership-header {
+    background-color: #dc143c;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.membership-header h1 {
+    margin: 0;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.membership-header p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Plan Switch */
+.plan-switch {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    background: #e6e6e6;
+    padding: 5px;
+    border-radius: 25px;
+    width: fit-content;
+    margin: 20px auto;
+}
+
+.plan-switch button {
+    padding: 8px 25px;
+    border: none;
+    background: transparent;
+    color: #666;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.plan-switch button.active {
+    background: #dc143c;
+    color: white;
+}
+
+/* Service Info */
+.service-info {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    margin: 20px 0;
+}
+
+/* Plans List */
+.plans-list {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.plan-row {
+    display: flex;
+    margin-bottom: 15px;
+    background: #f5f5f5;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.plan-name {
+    width: 250px;
+    color: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    position: relative;
+}
+
+.plan-name::after {
+    content: '';
+    position: absolute;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-top: 15px solid transparent;
+}
+
+.plan-details {
+    flex: 1;
+    display: flex;
+    background: white;
+}
+
+.view-section,
+.validity-section,
+.price-section {
+    flex: 1;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f5f5f5;
+    margin: 1px;
+}
+
+.view-section span,
+.validity-section span {
+    color: #666;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.contacts-count,
+.months {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.number {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin: 5px 0;
+}
+
+.text {
+    font-size: 12px;
+    color: #666;
+}
+
+.refundable {
+    font-size: 10px;
+    color: #999;
+    margin-top: 5px;
+}
+
+.price-section {
+    background: white;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.buy-now {
+    padding: 8px 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.offer-tag {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: #dc143c;
+    color: white;
+    padding: 5px 15px;
+    font-size: 12px;
+    border-radius: 0 4px 0 4px;
+}
+
+/* Features Section */
+.features-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.features-section h3 {
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.feature {
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.feature-icon img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.feature p {
+    color: #666;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Government ID Note */
+.govt-id-note {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    margin: 20px 0;
+    padding: 0 20px;
+}
+
+/* Register Section */
+.register-section {
+    background: #ffa500;
+    padding: 15px;
+}
+
+.register-banner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.register-banner p {
+    color: white;
+    font-size: 16px;
+    margin: 0;
+}
+
+.register-banner span {
+    font-weight: bold;
+}
+
+.register-free {
+    padding: 8px 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+/* Free Features */
+.free-features {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.free-features h3 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.free-features-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.free-features ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.free-features li {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.free-features li::before {
+    content: "✓";
+    color: #4CAF50;
+    margin-right: 8px;
+}
+
+/* Trust Score Note */
+.trust-score-note {
+    text-align: center;
+    color: #999;
+    font-size: 12px;
+    margin: 20px 0;
+    padding: 0 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .plan-row {
+        flex-direction: column;
+    }
+    
+    .plan-name {
+        width: 100%;
+    }
+    
+    .plan-details {
+        flex-direction: column;
+    }
+    
+    .view-section,
+    .validity-section,
+    .price-section {
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        padding: 20px;
+    }
+    
+    .price-section {
+        border-bottom: none;
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .free-features-grid {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .register-banner {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+  

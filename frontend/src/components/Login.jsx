@@ -1,24 +1,25 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/login.css"; // ✅ Import CSS for styling
+import "../styles/login.css";
 
 function Login() {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState(""); // ✅ Add success message
+  const [success, setSuccess] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  // ✅ Handle input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    // Clear error when user starts typing
+    setError("");
   };
 
-  // ✅ Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     setSuccess("");
+    setIsLoading(true);
 
     try {
       const response = await fetch("http://localhost:5000/api/auth/login", {
@@ -28,56 +29,88 @@ function Login() {
       });
 
       const data = await response.json();
-      console.log("API Response:", data); // ✅ Debug API response
 
       if (response.ok) {
-        // ✅ Store user details in localStorage
         localStorage.setItem("user", JSON.stringify(data.user));
-
-        // ✅ Show success message and redirect to Profile
-        setSuccess("Login Successful! Redirecting to profile...");
-        setTimeout(() => navigate("/profile"), 1000); // 1-second delay for user feedback
+        setSuccess("Login Successful! Redirecting to Home...");
+        setTimeout(() => navigate("/home"), 1500);
       } else {
         setError(data.message || "Invalid credentials. Please try again.");
       }
     } catch (error) {
-      console.error("Error:", error); // ✅ Debug error
-      setError("Something went wrong. Please try again!");
+      setError("Something went wrong. Please try again later.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
     <div className="login-page">
       <div className="form-container">
-        <h2>Login</h2>
-        {/* ✅ Show error message */}
-        {error && <p className="error-message">{error}</p>}
-        {/* ✅ Show success message */}
-        {success && <p className="success-message">{success}</p>}
+        <h2>Welcome Back!</h2>
+        <p>Login to continue your journey</p>
         
+        {error && (
+          <div className="message error-message">
+            <span className="icon">❌</span>
+            <span className="message-text">{error}</span>
+          </div>
+        )}
+        
+        {success && (
+          <div className="message success-message">
+            <span className="icon">✅</span>
+            <span className="message-text">{success}</span>
+          </div>
+        )}
+
         <form onSubmit={handleSubmit}>
-          {/* ✅ Email Field */}
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            onChange={handleChange}
-            required
-            autoComplete="email" // 🎉 Autocomplete added for email
-          />
+          <div className="input-group">
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className={error ? "error-input" : ""}
+            />
+          </div>
+          
+          <div className="input-group">
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              className={error ? "error-input" : ""}
+            />
+          </div>
 
-          {/* ✅ Password Field */}
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            onChange={handleChange}
-            required
-            autoComplete="current-password" // 🎉 Autocomplete added for password
-          />
-
-          <button type="submit">Login</button>
+          <button type="submit" className={`login-button ${isLoading ? 'loading' : ''}`}>
+            {isLoading ? (
+              <span className="loader"></span>
+            ) : (
+              'LOGIN'
+            )}
+          </button>
         </form>
+
+        <div className="or-divider">
+          <span>OR</span>
+        </div>
+
+        <button className="register-btn" onClick={() => navigate("/register")}>
+          Create New Account
+        </button>
+
+        <div className="links">
+          <a href="/forgot-password">Forgot Password?</a>
+          <a href="/resend-activation">Resend Activation</a>
+          <a href="/help">Help</a>
+        </div>
       </div>
     </div>
   );
@@ -86,4 +119,3 @@ function Login() {
 export default Login;
 
 
-// checked

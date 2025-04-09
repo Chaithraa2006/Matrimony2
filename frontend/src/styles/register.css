@@ -1,141 +1,328 @@
-/* ✅ Apply styles only inside .register-page */
+/* 🌟 Register Page Main Container */
 .register-page {
-  max-width: 100%;
-  height: 100vh;
+  position: relative;
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  position: relative;
-  background: url('../../public/images/image11.jpg') no-repeat center center/cover; /* ✅ Correct path to uploaded image */
-  margin: 0;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1s ease-in-out;
+  overflow: hidden;
 }
 
-/* ✅ Add Color Overlay to Full Background */
 .register-page::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(84, 84, 84, 0.4); /* ✅ Apply dark transparent overlay to the background */
-  z-index: 1;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+  z-index: 0;
 }
 
-/* ✅ Register Container with Background Color Overlay */
-.register-page .form-container {
+.register-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 60px auto 0;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
   position: relative;
-  width: 400px;
-  height: 460px;
-  padding: 25px;
-  /* ✅ Same image for the form */
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  overflow: hidden; /* ✅ Ensures form stays above the background */
+  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: fadeIn 0.8s ease-out;
+  overflow: hidden;
+  transition: background-image 1s ease-in-out;
 }
 
-/* ✅ Overlay for Form Container */
-.register-page .form-container::before {
-  content: "";
+.register-container::before {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(84, 84, 84, 0.5); /* ✅ Darker overlay for form */
-  z-index: 1;
-  border-radius: 12px;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.85);
+  z-index: -1;
 }
 
-/* ✅ Ensuring Content is Above the Overlay */
-.register-page .form-container > * {
+.register-content {
   position: relative;
   z-index: 2;
 }
 
-/* Heading */
-.register-page h2 {
-  font-size: 24px;
-  color: #fff;
+.register-container h2 {
+  color: #D2226C;
+  text-align: center;
   margin-bottom: 15px;
+  font-size: 32px;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-/* Input Fields */
-.register-page input {
-  width: 90%;
-  padding: 12px;
-  margin: 10px 0;
+.register-container p {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
   font-size: 16px;
-  border: 2px solid #ddd;
-  border-radius: 6px;
-  transition: 0.3s;
+  line-height: 1.5;
 }
 
-/* Input Focus Effect */
-.register-page input:focus {
-  border-color: #28a745;
+/* 📝 Register Form */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+
+/* 🎭 Form Labels */
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* ✍ Input Fields */
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #D2226C;
+  box-shadow: 0 0 0 3px rgba(210, 34, 108, 0.1);
   outline: none;
-  box-shadow: 0 0 8px rgba(40, 167, 69, 0.6);
 }
 
-/* File Input */
-.register-page input[type="file"] {
-  border: none;
-  padding: 5px;
+/* 📞 Mobile Number Input */
+.mobile-input {
+  display: flex;
+  gap: 15px;
 }
 
-/* Button */
-.register-page button {
-  width: 100%;
-  padding: 12px;
-  font-size: 18px;
-  background-color: #f50057;
-  color: white;
-  border: none;
-  border-radius: 6px;
+.mobile-input select {
+  width: 120px;
+  flex-shrink: 0;
+}
+
+/* 🚻 Gender Buttons */
+.gender-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.gender-buttons button {
+  flex: 1;
+  padding: 15px;
+  border: 2px solid #ff4081;
+  background: transparent;
+  color: #ff4081;
   cursor: pointer;
-  transition: 0.3s;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
-/* Button Hover */
-.register-page button:hover {
-  background-color: #218838;
-  transform: scale(1.05);
-}
-
-/* Error Message */
-.error-message {
-  color: red;
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-
-/* Success Message */
-.success-message {
-  color: green;
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-
-/* General Input Styles */
-input {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-}
-
-/* General Button Styles */
-button {
-  padding: 10px 20px;
-  background-color: green;
+.gender-buttons button.active {
+  background: linear-gradient(45deg, #ff4081, #9c27b0);
   color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 64, 129, 0.3);
 }
 
-/* File Input Styles */
-input[type="file"] {
-  margin: 10px 0;
-  padding: 8px;
-  background: #f1f1f1;
-  border-radius: 5px;
+/* 🎂 Date of Birth */
+.dob-container {
+  display: flex;
+  gap: 15px;
+}
+
+.dob-container select {
+  flex: 1;
+}
+
+/* ✅ Checkbox Styling */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.checkbox-container input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+}
+
+.checkbox-container span {
+  color: #666;
+  font-size: 14px;
+}
+
+/* 🔘 Sign-up Button */
+.signup-button {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(to right, #dc71b5, #DA22FF);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(218, 34, 255, 0.2);
+}
+
+.signup-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(218, 34, 255, 0.3);
+}
+
+.signup-button.loading {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.loader {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Links */
+.register-container a {
+  color: #ff4081;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.register-container a:hover {
+  color: #e91e63;
+  text-decoration: underline;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 768px) {
+  .register-container {
+    margin: 40px 20px;
+    padding: 30px;
+  }
+
+  .register-container h2 {
+    font-size: 28px;
+  }
+
+  .register-container p {
+    font-size: 14px;
+  }
+
+  .gender-buttons {
+    flex-direction: column;
+  }
+
+  .dob-container {
+    flex-direction: column;
+  }
+
+  .mobile-input {
+    flex-direction: column;
+  }
+
+  .mobile-input select {
+    width: 100%;
+  }
+}
+
+.signin-link {
+  text-align: center;
+  margin-top: 20px;
+  color: #666;
+  font-size: 14px;
+}
+
+.signin-link span {
+  color: #ff4081;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.signin-link span:hover {
+  color: #e91e63;
+}
+
+.message {
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.error-message {
+  background: rgba(255, 0, 0, 0.05);
+  border: 1px solid rgba(255, 0, 0, 0.1);
+  color: #ff0000;
+}
+
+.success-message {
+  background: rgba(0, 255, 0, 0.05);
+  border: 1px solid rgba(0, 255, 0, 0.1);
+  color: #00aa00;
+}
+
+.message .icon {
+  font-size: 18px;
+}
+
+.message .message-text {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

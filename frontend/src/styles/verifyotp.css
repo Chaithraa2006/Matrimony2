@@ -3,7 +3,7 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  background: url('../../public/images/image13.jpg') no-repeat center center fixed;
+  /* background: url('../../public/images/image12.jpg') no-repeat center center fixed; */
   background-size: cover; /* ✅ Ensure image covers entire screen */
 }
 
@@ -81,4 +81,158 @@ button:hover {
 .error-message {
   color: #dc3545;
   margin: 10px 0;
+}
+
+.verify-otp-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80");
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+}
+
+.verify-otp-box {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  animation: fadeIn 0.5s ease;
+}
+
+.verify-otp-box h2 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.verify-otp-box p {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+  border-color: #ff4b91;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 75, 145, 0.1);
+}
+
+.verify-button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(45deg, #ff4b91, #ff8dc7);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 15px;
+}
+
+.verify-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 75, 145, 0.3);
+}
+
+.verify-button.loading {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.resend-button {
+  background: none;
+  border: none;
+  color: #ff4b91;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.resend-button:hover {
+  color: #ff8dc7;
+  text-decoration: underline;
+}
+
+.resend-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.message {
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.error-message {
+  background: #ffe6e6;
+  color: #ff3333;
+  border: 1px solid #ffcccc;
+}
+
+.success-message {
+  background: #e6ffe6;
+  color: #33cc33;
+  border: 1px solid #ccffcc;
+}
+
+.icon {
+  font-size: 18px;
+}
+
+.loader {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .verify-otp-box {
+    padding: 30px 20px;
+  }
 }

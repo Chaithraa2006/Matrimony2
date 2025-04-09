@@ -1,0 +1,98 @@
+/* ✅ Footer Container */
+.footer-container {
+    background-color: #0f0f0f;
+    color: white;
+    padding: 30px 20px;
+    font-size: 14px;
+  }
+  
+  /* ✅ Browse Section */
+  .browse-section {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .browse-section h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ff4081;
+  }
+  
+  .browse-section p {
+    margin: 5px 0;
+    color: #ccc;
+  }
+  
+  .badge {
+    background-color: #7b1fa2;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+  }
+  
+  /* ✅ Footer Links Section */
+  .footer-links {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  
+  .column {
+    width: 18%;
+  }
+  
+  .column h4 {
+    font-size: 16px;
+    color: #ff4081;
+    margin-bottom: 10px;
+  }
+  
+  .column ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .column li {
+    margin-bottom: px;
+  }
+  
+  /* ✅ Services Buttons */
+  .btn {
+    display: block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    width: 150px;
+    text-align: center;
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .planyourvivah-btn {
+    background-color: #673ab7;
+  }
+  
+  /* ✅ Social Icons */
+  .social-icons {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  
+  .social-icons img {
+    width: 24px;
+    cursor: pointer;
+  }
+  
+  /* ✅ Copyright */
+  .copyright {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #bbb;
+  }
+  

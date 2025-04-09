@@ -1,134 +1,132 @@
-// import { useState, useEffect } from "react";
-// import { useNavigate, useLocation } from "react-router-dom";
-// import "../styles/verifyotp.css";
-
-// function VerifyOTP() {
-//   const [otp, setOtp] = useState("");
-//   const navigate = useNavigate();
-//   const location = useLocation();
-//   const email = location.state?.email; // ✅ Get email from state
-
-//   useEffect(() => {
-//     if (!email) {
-//       alert("Email not found! Redirecting to register.");
-//       navigate("/register"); // Redirect if email is not passed
-//     }
-//   }, [email, navigate]);
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-
-//     try {
-//       const response = await fetch("http://localhost:5000/api/auth/verify-otp", {
-//         method: "POST",
-//         headers: { "Content-Type": "application/json" },
-//         body: JSON.stringify({ email, otp }),
-//       });
-
-//       const data = await response.json();
-
-//       if (response.ok) {
-//         alert("✅ OTP verified successfully! Please login.");
-//         navigate("/login"); // Redirect to login page after success
-//       } else {
-//         alert(data.message);
-//       }
-//     } catch (error) {
-//       alert("❌ Something went wrong. Try again!");
-//     }
-//   };
-
-//   return (
-//     <div className="verify-page">
-//       <div className="form-container">
-//         <h2>Verify OTP</h2>
-//         <form onSubmit={handleSubmit}>
-//           <input
-//             type="text"
-//             placeholder="Enter OTP"
-//             value={otp}
-//             onChange={(e) => setOtp(e.target.value)}
-//             required
-//           />
-//           <button type="submit">Verify OTP</button>
-//         </form>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default VerifyOTP;
-
-
-
-import { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import "../styles/verifyotp.css"; // ✅ Import CSS
+import "../styles/verifyotp.css";
 
-function VerifyOTP() {
+const VerifyOTP = () => {
   const [otp, setOtp] = useState("");
-  const [error, setError] = useState(""); // ❌ Handle error message
-  const [success, setSuccess] = useState(""); // ✅ Handle success message
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const email = location.state?.email; // ✅ Get email from state
+  const email = location.state?.email;
 
-  // ✅ Redirect to register if email not passed
-  useEffect(() => {
-    if (!email) {
-      setError("⚠️ Email not found! Redirecting to register...");
-      setTimeout(() => navigate("/register"), 2000); // Redirect after 2 seconds
-    }
-  }, [email, navigate]);
-
-  // ✅ Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(""); // Clear previous errors
-    setSuccess(""); // Clear previous success
+    setIsLoading(true);
+    setError("");
+    setSuccess("");
 
     try {
       const response = await fetch("http://localhost:5000/api/auth/verify-otp", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, otp }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email,
+          otp: otp,
+        }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
-        setSuccess("✅ OTP verified successfully! Redirecting to login...");
-        setTimeout(() => navigate("/login"), 2000); // Redirect after 2 seconds
+        setSuccess("OTP verified successfully!");
+        localStorage.setItem("user", JSON.stringify(data.user));
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
       } else {
-        setError(data.message || "❌ Invalid OTP. Please try again.");
+        setError(data.message || "Invalid OTP. Please try again.");
       }
-    } catch (error) {
-      setError("❌ Something went wrong. Try again later!");
+    } catch (err) {
+      setError("Network error. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
+  const handleResendOTP = async () => {
+    setError("");
+    setIsLoading(true);
+
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/resend-otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSuccess("New OTP sent successfully! Please check your email.");
+      } else {
+        setError(data.message || "Failed to resend OTP. Please try again.");
+      }
+    } catch (error) {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  if (!email) {
+    return <div>Invalid access. Please register first.</div>;
+  }
+
   return (
-    <div className="verify-otp-page">
-      <div className="form-container">
-        <h2>Verify OTP</h2>
-  
-        {/* ✅ Show success or error messages */}
-        {success && <p className="success-message">{success}</p>}
-        {error && <p className="error-message">{error}</p>}
-  
+    <div className="verify-otp-container">
+      <div className="verify-otp-box">
+        <h2>Verify Your Email</h2>
+        <p>Please enter the OTP sent to your email</p>
+        
+        {error && (
+          <div className="message error-message">
+            <span className="icon">❌</span>
+            <span className="message-text">{error}</span>
+          </div>
+        )}
+        
+        {success && (
+          <div className="message success-message">
+            <span className="icon">✅</span>
+            <span className="message-text">{success}</span>
+          </div>
+        )}
+
         <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Enter OTP"
-            value={otp}
-            onChange={(e) => setOtp(e.target.value)}
-            required
-          />
-          <button type="submit">Verify OTP</button>
+          <div className="input-group">
+            <input
+              type="text"
+              placeholder="Enter OTP"
+              value={otp}
+              onChange={(e) => setOtp(e.target.value)}
+              required
+              maxLength="6"
+            />
+          </div>
+
+          <button type="submit" className={`verify-button ${isLoading ? 'loading' : ''}`}>
+            {isLoading ? (
+              <span className="loader"></span>
+            ) : (
+              'Verify OTP'
+            )}
+          </button>
         </form>
+
+        <button 
+          className="resend-button" 
+          onClick={handleResendOTP}
+          disabled={isLoading}
+        >
+          Resend OTP
+        </button>
       </div>
     </div>
   );
-}  
+};
 
 export default VerifyOTP;
